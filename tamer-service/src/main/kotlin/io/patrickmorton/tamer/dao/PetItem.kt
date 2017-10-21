@@ -12,17 +12,17 @@ class PetItem {
   @DynamoDBAttribute
   var name: String = ""
   @DynamoDBAttribute
-  var species: String = ""
-  @DynamoDBAttribute
-  var experience: Double = 0.0
-  @DynamoDBAttribute
   var adoptionDate: Date = Date()
   @DynamoDBAttribute
   var retirementDate: Date? = null
   @DynamoDBAttribute
-  var foods: Set<FoodType>? = null
+  var species: String = ""
+  @DynamoDBAttribute
+  var experience: Double = 0.0
   @DynamoDBAttribute
   var hunger: Int = 0
+  @DynamoDBAttribute
+  var boredom: Int = 0
 
   fun withId(id: String): PetItem {
     this.petId = id
@@ -56,6 +56,11 @@ class PetItem {
 
   fun withHunger(hunger: Int): PetItem {
     this.hunger = hunger
+    return this
+  }
+
+  fun withBoredom(boredom: Int): PetItem {
+    this.boredom = boredom
     return this
   }
 }
